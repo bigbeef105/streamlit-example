@@ -31,6 +31,7 @@ if uploaded_file is not None:
     ax=ax,
   )
   plt.ion()
+  ax.ion()
   st.write(fig)
   
 @st.cache
