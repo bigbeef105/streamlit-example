@@ -17,7 +17,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file, skiplines=3)
+  df = pd.read_csv(uploaded_file, skiprows=3)
   st.write(df)
 
 # with st.echo(code_location='below'):
