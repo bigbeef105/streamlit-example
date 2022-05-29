@@ -6,14 +6,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 """
-# Welcome to Streamlit!
+# Welcome Shakira!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+The below level one data science dashboard should be compatible with your device files.
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
 uploaded_file = st.file_uploader("Choose a file")
