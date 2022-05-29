@@ -32,8 +32,20 @@ if uploaded_file is not None:
   )
   st.write(fig)
   
-st.download_button('Download Transformed CSV', df, 'text/csv')
+@st.cache
+def convert_df(df):
+   return df.to_csv().encode('utf-8')
 
+
+csv = convert_df(df)
+
+st.download_button(
+   "Press to Download Transformed Data",
+   csv,
+   "Shakira.csv",
+   "text/csv",
+   key='download-csv'
+)
 
 # with st.echo(code_location='below'):
 #     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
