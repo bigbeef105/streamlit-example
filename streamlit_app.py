@@ -30,6 +30,7 @@ if uploaded_file is not None:
     color="#86bf91",
     ax=ax,
   )
+  plt.ion()
   st.write(fig)
   
 @st.cache
