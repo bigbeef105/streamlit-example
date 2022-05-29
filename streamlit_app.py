@@ -20,6 +20,17 @@ if uploaded_file is not None:
   df = pd.read_csv(uploaded_file, skiprows=3)
   st.write(df)
 
+# Add some matplotlib code !
+  fig, ax = plt.subplots()
+  df.line(
+    bins=8,
+    column="Weight(g)",
+    grid=False,
+    figsize=(8, 8),
+    color="#86bf91",
+    ax=ax,
+  )
+  st.write(fig)
 # with st.echo(code_location='below'):
 #     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
 #     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
