@@ -24,7 +24,6 @@ if uploaded_file is not None:
 # Add some matplotlib code !
   fig, ax = plt.subplots()
   df.plot.line(
-    bins=8,
     column="Weight(g)",
     grid=False,
     figsize=(8, 8),
