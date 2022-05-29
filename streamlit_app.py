@@ -19,12 +19,16 @@ In the meantime, below is an example of what you can do with just a few lines of
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
   df = pd.read_csv(uploaded_file, skiprows=3)
+  df.drop(df.tail(1).index,inplace=True)
+  df['Date-Time'] =  pd.to_datetime(df['Date-Time'], format='%m/%d/%y %H:%M:%S.%f')
   st.write(df)
 
+ 
 # Add some matplotlib code !
   fig, ax = plt.subplots()
   df.plot.line(
-    column="Weight(g)",
+    x="Date-Time",
+    y="Weight(g)",
     grid=False,
     figsize=(8, 8),
     color="#86bf91",
