@@ -19,7 +19,6 @@ if uploaded_file is not None:
   df['Date-Time'] =  pd.to_datetime(df['Date-Time'], format='%m/%d/%y %H:%M:%S.%f')
   st.write(df)
 
- 
 # Add some matplotlib code !
   fig, ax = plt.subplots()
   df.plot.line(
@@ -32,6 +31,23 @@ if uploaded_file is not None:
   )
 
   st.write(fig)
+ 
+if st.button('Smooth Data'):
+
+  df['rolling_mean'] = df['Weight(g)'].rolling(20).mean()
+  st.write('Processed Data!') #displayed when the button is clicked
+  st.write(df)
+  
+  # Add some matplotlib code !
+  fig, ax = plt.subplots()
+  df.plot.line(
+    x="Date-Time",
+    y="rolling_mean",
+    grid=False,
+    figsize=(8, 8),
+    color="#86bf91",
+    ax=ax,
+  )
   
 @st.cache
 def convert_df(df):
