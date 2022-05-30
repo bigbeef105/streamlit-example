@@ -36,10 +36,10 @@ if uploaded_file is not None:
   st.write(df)
 
 # Add some matplotlib code !
-  df_shortened = df.head(number2)
+#   df_shortened = df.head(number2)
 
   fig = px.line(        
-        df_shortened, #Data Frame
+        df, #Data Frame
         x = "Date-Time", #Columns from the data frame
         y = "Weight(g)",
         title = "Weight"
@@ -67,7 +67,7 @@ if st.button('Smooth Data'):
   st.write(df)
   
   # Add some matplotlib code !
-  df_shortened = df.head(number2)
+#   df_shortened = df.head(number2)
 
   fig, ax = plt.subplots()
   df.plot.line(
