@@ -5,6 +5,10 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
+@st.cache
+def convert_df(df):
+   return df.to_csv().encode('utf-8')
+
 """
 # Welcome Shakira!
 
@@ -51,9 +55,6 @@ if st.button('Smooth Data'):
     ax=ax,
   )
   
-@st.cache
-def convert_df(df):
-   return df.to_csv().encode('utf-8')
 
 
 
