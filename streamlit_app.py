@@ -39,7 +39,7 @@ if uploaded_file is not None:
   df_shortened = df.head(number2)
 
   fig = px.line(        
-        df, #Data Frame
+        df_shortened, #Data Frame
         x = "Date-Time", #Columns from the data frame
         y = "Weight(g)",
         title = "Weight"
