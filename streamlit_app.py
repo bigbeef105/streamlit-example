@@ -21,6 +21,10 @@ The below level one data science dashboard should be compatible with your device
 
 """
 
+number = st.number_input('Define smoothing window size..', value=3)
+number2 = st.number_input('Plot window size', value=max(df))
+
+
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
   df = pd.read_csv(uploaded_file, skiprows=3)
@@ -30,8 +34,10 @@ if uploaded_file is not None:
   st.write(df)
 
 # Add some matplotlib code !
+  df_shortened = df.head(number2)
+
   fig, ax = plt.subplots()
-  df.plot.line(
+  df_shortened.plot.line(
     x="Date-Time",
     y="Weight(g)",
     grid=False,
@@ -42,7 +48,6 @@ if uploaded_file is not None:
 
   st.write(fig)
 
-number = st.number_input('Define smoothing window size..', value=3)
 
 if st.button('Smooth Data'):
 
@@ -52,6 +57,8 @@ if st.button('Smooth Data'):
   st.write(df)
   
   # Add some matplotlib code !
+  df_shortened = df.head(number2)
+
   fig, ax = plt.subplots()
   df.plot.line(
     x="Date-Time",
