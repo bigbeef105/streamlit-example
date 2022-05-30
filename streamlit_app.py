@@ -2,6 +2,7 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 
@@ -9,7 +10,9 @@ import matplotlib.pyplot as plt
 def convert_df(df):
    return df.to_csv().encode('utf-8')
 
-csv = []
+df = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
+                   columns=['a', 'b', 'c'])
+csv = convert_df(df)
 
 """
 # Welcome Shakira!
