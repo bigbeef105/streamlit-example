@@ -42,7 +42,7 @@ if uploaded_file is not None:
 
   st.write(fig)
 
-number = st.number_input('Insert a number', value=3)
+number = st.number_input('Define smoothing window size..', value=3)
 
 if st.button('Smooth Data'):
 
