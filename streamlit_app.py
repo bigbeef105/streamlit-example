@@ -22,7 +22,7 @@ The below level one data science dashboard should be compatible with your device
 """
 
 number = st.number_input('Define smoothing window size..', value=3)
-number2 = st.number_input('Plot window size', value=max(df))
+number2 = st.number_input('Plot window size', value=len(df))
 
 
 uploaded_file = st.file_uploader("Choose a file")
