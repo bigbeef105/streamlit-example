@@ -17,6 +17,7 @@ if uploaded_file is not None:
   df = pd.read_csv(uploaded_file, skiprows=3)
   df.drop(df.tail(1).index,inplace=True)
   df['Date-Time'] =  pd.to_datetime(df['Date-Time'], format='%m/%d/%y %H:%M:%S.%f')
+  csv = convert_df(df)
   st.write(df)
 
 # Add some matplotlib code !
@@ -35,6 +36,7 @@ if uploaded_file is not None:
 if st.button('Smooth Data'):
 
   df['rolling_mean'] = df['Weight(g)'].rolling(20).mean()
+  csv = convert_df(df)
   st.write('Processed Data!') #displayed when the button is clicked
   st.write(df)
   
@@ -55,14 +57,13 @@ def convert_df(df):
 
 
 
-if st.download_button(
+st.download_button(
    "Press to Download Transformed Data",
    csv,
    "Shakira.csv",
    "text/csv",
    key='download-csv'
-):
-  csv = convert_df(df)
+)
 
 
 # with st.echo(code_location='below'):
