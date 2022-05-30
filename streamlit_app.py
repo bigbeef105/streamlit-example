@@ -41,10 +41,12 @@ if uploaded_file is not None:
   )
 
   st.write(fig)
- 
+
+number = st.number_input('Insert a number', value=3)
+
 if st.button('Smooth Data'):
 
-  df['rolling_mean'] = df['Weight(g)'].rolling(20).mean()
+  df['rolling_mean'] = df['Weight(g)'].rolling(number).mean()
   csv = convert_df(df)
   st.write('Processed Data!') #displayed when the button is clicked
   st.write(df)
