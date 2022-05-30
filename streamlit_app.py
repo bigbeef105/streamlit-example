@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 @st.cache
 def convert_df(df):
@@ -36,17 +37,25 @@ if uploaded_file is not None:
 # Add some matplotlib code !
   df_shortened = df.head(number2)
 
-  fig, ax = plt.subplots()
-  df_shortened.plot.line(
-    x="Date-Time",
-    y="Weight(g)",
-    grid=False,
-    figsize=(8, 8),
-    color="#86bf91",
-    ax=ax,
-  )
+  fig = px.line(        
+        df, #Data Frame
+        x = "Date-Time", #Columns from the data frame
+        y = "Weight(g)",
+        title = "Weight"
+    )
+   fig.update_traces(line_color = "maroon")
+   st.plotly_chart(fig)
+#   fig, ax = plt.subplots()
+#   df_shortened.plot.line(
+#     x="Date-Time",
+#     y="Weight(g)",
+#     grid=False,
+#     figsize=(8, 8),
+#     color="#86bf91",
+#     ax=ax,
+#   )
 
-  st.write(fig)
+#   st.write(fig)
 
 
 if st.button('Smooth Data'):
