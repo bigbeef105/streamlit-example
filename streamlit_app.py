@@ -43,8 +43,8 @@ if uploaded_file is not None:
         y = "Weight(g)",
         title = "Weight"
     )
-   fig.update_traces(line_color = "maroon")
-   st.plotly_chart(fig)
+  fig.update_traces(line_color = "maroon")
+  st.plotly_chart(fig)
 #   fig, ax = plt.subplots()
 #   df_shortened.plot.line(
 #     x="Date-Time",
